@@ -48,13 +48,23 @@ function checkLength(input,min,max){
 }
 // check email validity
 function checkEmail(email){
-    var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
     if(re.test(String(email.value.trim()))){
         email.value.toLowerCase()
         showSuccess(email)
     }
     else{
         showError(email,"Invalid Email!")
+    }
+}
+//check password strength
+function checkPasswordStrength(password){
+    const psw = new RegExp("^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{8,})");
+    if(psw.test(password.value)){
+        showSuccess(password)
+    }
+    else{
+        showError(password,"Your password should contain at least one lowercase,uppercase,numeric and symbol character")
     }
 }
 //check password match
@@ -74,5 +84,6 @@ form.addEventListener('submit', function(e){
     checkLength(username,3,20)
     checkEmail(email)
     checkPasswordsMatch(password,password2)
+    checkPasswordStrength(password)
     
 })
