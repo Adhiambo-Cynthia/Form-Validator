@@ -7,10 +7,18 @@ const tabs=document.querySelectorAll('.tab')
 const tabContents=document.querySelectorAll('.tab-content')
 //get corect tab content
 function showTab(tabIndex){
-    tabs.forEach(function(tab){
-        tab.style.backgroundColor=""
+    tabs.forEach(function(tab,i){
+        console.log(i)
+        console.log(tabIndex)
+        if(i=== tabIndex){
+            tab.classList.add('active')
+        }
+        else{
+            tab.classList.remove('active')
+        }
     })
-    tabs[tabIndex].classList.add('active')
+    
+    
     tabContents.forEach(function(content){
         content.style.display="none"
     })
