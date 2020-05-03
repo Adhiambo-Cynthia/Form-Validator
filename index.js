@@ -3,7 +3,20 @@ const username = document.getElementById('username');
 const email = document.getElementById('email');
 const password = document.getElementById('password');
 const password2 = document.getElementById('password2')
-
+const tabs=document.querySelectorAll('.tab')
+const tabContents=document.querySelectorAll('.tab-content')
+//get corect tab content
+function showTab(tabIndex){
+    tabs.forEach(function(tab){
+        tab.style.backgroundColor=""
+    })
+    tabs[tabIndex].classList.add('active')
+    tabContents.forEach(function(content){
+        content.style.display="none"
+    })
+    tabContents[tabIndex].style.display="block"
+}
+showTab(0)
 //show input error message
 function showError(input, message){
     const formControl = input.parentElement;

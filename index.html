@@ -8,6 +8,37 @@
 </head>
 <body>
     <div class="container">
+        <div class="tab-btns">
+            <div class="tab" onclick="showTab(0)">LOGIN</div>
+          <div class="tab" onclick="showTab(1)">SIGN UP</div>
+        </div>
+        <!-- The login form -->
+        <div id="login" class="tab-content">
+            <form action="" method="post" class="form" id="formLogin">
+                <h2>Welcome Back!</h2>
+                <div class="form-control">
+                    <label for="email"><i class="fas fa-envelope"></i> Email</label>
+                    <input type="text" id="emailLogin" placeholder="Enter email">
+                    <small>Error Message</small>
+                </div>
+                <div class="form-control">
+                    <label for="password"><i class="fas fa-lock"></i> Password</label>
+                    <input type="password" id="passwordLogin" placeholder="Enter password">
+                    <small>Error Message</small>
+                </div>
+                <button type="submit">Login</button>
+            </form>
+            <div class="others">
+                <h4>LOGIN USING</h4>
+                <div class="icons">
+                    <i class="fab fa-facebook 5x"></i>
+                    <i class="fab fa-twitter 5x"></i>
+                    <i class="fab fa-google 5x"></i>
+                </div>
+            </div>
+        </div>
+        <!-- The sign up form -->
+        <div id="sign-up" class="tab-content">
         <form action="" method="post" class="form" id="form">
             <h2>Register With us</h2>
             <div class="form-control">
@@ -40,6 +71,8 @@
                 <i class="fab fa-google 5x"></i>
             </div>
         </div>
+        </div>
+        
     </div>
     <script src="index.js"></script>
     <script src="https://kit.fontawesome.com/01fc60fbaf.js" crossorigin="anonymous"></script>
